@@ -40,14 +40,14 @@
 
 <!ATTLIST habitante nss ID #REQUIRED>
 <!ATTLIST infoCovid pasado CDATA #REQUIRED>
-<!ATTLIST infeccion numero CDATA #REQUIRED>
+<!ATTLIST infeccion numero CDATA "1">
 <!ATTLIST complicaciones intubacion CDATA #REQUIRED>
 <!ATTLIST complicaciones uci CDATA #REQUIRED>
 <!ATTLIST complicaciones oxigeno CDATA #REQUIRED>
 
 
 <!ATTLIST vacuna codigo ID #REQUIRED>
-<!ATTLIST vacuna dosis CDATA #REQUIRED>
+<!ATTLIST vacuna dosis (1|2) #REQUIRED>
 
 
 
