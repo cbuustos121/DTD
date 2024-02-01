@@ -1,39 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 
 
+<!ELEMENT programaVacunacion (inmunizados,vacunadosUnaDosis,habitantes,vacunas)>
 
+<!ELEMENT inmunizados (inmunizado)*>
+<!ELEMENT inmunizado (fechaDosis)+>
+<!ELEMENT fechaDosis (#PCDATA)>
 
+<!ELEMENT vacunadosUnaDosis (vacunado)*>
+<!ELEMENT vacunado (fechaDosis)>
 
-
-
-<!ELEMENT supermercado (producto*,caja*,cajero*,empleados)>
-<!ELEMENT producto (descripcion)>
-<!ELEMENT descripcion (#PCDATA|importante)*>
-<!ELEMENT importante (#PCDATA)>
-
-<!ELEMENT caja (compra*)>
-<!ELEMENT compra (item+)>
-<!ELEMENT item EMPTY>
-
-<!ELEMENT cajero (abierta, cerrada)*>
-<!ELEMENT abierta (#PCDATA)>
-<!ELEMENT cerrada (#PCDATA)>
-
-<!ELEMENT empleados (empleado+)>
-<!ELEMENT empleado (nombre, puesto)>
+<!ELEMENT habitantes (habitante)+>
+<!ELEMENT habitante (nombre,apellido1,apellido2?,fechaNacimiento,contacto,infoCovid?)>
 <!ELEMENT nombre (#PCDATA)>
-<!ELEMENT puesto (#PCDATA)>
+<!ELEMENT apellido1 (#PCDATA)>
+<!ELEMENT apellido2 (#PCDATA)>
+<!ELEMENT fechaNacimiento (#PCDATA)>
+<!ELEMENT contacto (direccion|telefonoFijo|telefonoMovil)+>
+<!ELEMENT direccion (#PCDATA)>
+<!ELEMENT telefonoFijo (#PCDATA)>
+<!ELEMENT telefonoMovil (#PCDATA)>
+<!ELEMENT infoCovid (infeccion)+>
+<!ELEMENT infeccion (fecha,complicaciones?)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT complicaciones EMPTY>
+<!ELEMENT vacunas (vacuna)+>
+<!ELEMENT vacuna (nombre,pais,nacimientoEmpresa)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT nacimientoEmpresa (#PCDATA)>
+
+<!ATTLIST inmunizado
+    nssHabitante IDREF #REQUIRED
+    vacuna IDREF #REQUIRED
+>
+
+<!ATTLIST vacunado
+    nssHabitante IDREF #REQUIRED
+    vacuna IDREF #REQUIRED
+  >
+
+<!ATTLIST habitante
+    nss ID #REQUIRED
+  >
+
+<!ATTLIST infoCovid
+    pasado (si) #REQUIRED
+>
+
+<!ATTLIST infeccion
+    numero CDATA #REQUIRED
+>
+
+<!ATTLIST complicaciones
+    intubacion (si|no) #REQUIRED
+    uci (si|no) #REQUIRED
+    oxigeno (si|no) #REQUIRED
+>
 
 
-<!ATTLIST producto codigo ID #REQUIRED>
 
-<!ATTLIST caja codigo ID #REQUIRED>
-<!ATTLIST item codigoProducto IDREF #REQUIRED>
-<!ATTLIST item unidades CDATA "1">
-
-<!ATTLIST cajero codigoCajero IDREF #REQUIRED>
-<!ATTLIST cajero codigoCaja IDREF #REQUIRED>
-
-<!ATTLIST empleado codigo ID #REQUIRED>
+<!ATTLIST vacuna
+    codigo ID #REQUIRED
+    dosis (1|2) #REQUIRED
+>
 
 

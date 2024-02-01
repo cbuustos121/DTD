@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE programaVacunacion SYSTEM "vacunas.dtd">
+<!DOCTYPE programaVacunacion SYSTEM "pract.dtd">
 
 <programaVacunacion>
     <inmunizados>
@@ -74,9 +73,9 @@
             <apellido2>Garcia</apellido2>
             <fechaNacimiento>29-04-1945</fechaNacimiento>
             <contacto>
-                <telefonoMovil>620987111</telefonoMovil>
                 <direccion>Paseo de la Fuente 1</direccion>
                 <telefonoFijo>923205080</telefonoFijo>      
+                <telefonoMovil>620987111</telefonoMovil>
             </contacto>        
         </habitante>
         <habitante nss="fgg1942">
